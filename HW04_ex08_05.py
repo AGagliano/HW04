@@ -20,15 +20,21 @@
 
 # Body
 
-
+#Counts the number of times a letter (l) appears in a string (s).
+def count(s, l):
+	count = 0
+	for char in s:
+		if char == l:
+			count += 1
+	print count 
 
 
 ################################################################################
 def main():
 
-    # Remove print("Hello World!") and add several functions calls to count()
-    # below, passing various strings and letters
-    print("Hello World!") 
+    count('strawberry', 'r')
+    count('pants', 'z')
+    count('Ischool', 'i')
     
 
 if __name__ == '__main__':
