@@ -28,15 +28,17 @@ import math
 
 #Iteratively prompts user for an input, evaluates it, and prints the result.
 def eval_loop():
-	
+	s_prev = ""
 	while True:
-		s = raw_input("Please enter what you'd like to be evaluated:\n")
-		if s == 'done':
+		s = raw_input("Please enter an expression that you'd like to be evaluated:\n")
+		if s == 'done':	
 			return s_prev 
 		else: 
-			s_prev = eval(s)
-			print s_prev
-			continue
+			try:
+				s_prev = eval(s)
+				print s_prev
+			except: 
+				continue 
 
 print eval_loop()
 
