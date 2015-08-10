@@ -16,8 +16,13 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-  # +++your code here+++
-  return
+  if s[-3:] == 'ing':
+    s_new = s + 'ly'
+  elif len(s) >= 3:
+    s_new = s + 'ing'
+  else:
+    return s 
+  return s_new
 
 
 # E. not_bad
@@ -29,9 +34,13 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
-
+  not_index = s.find('not')
+  bad_index = s.find('bad')
+  if not_index < bad_index:
+    s_updated = s[:not_index] + 'good' + s[(bad_index+3):]
+    return s_updated
+  else:
+    return s
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -40,9 +49,19 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+from math import ceil
+
+#Function to determine the appropriate index to split a string in half.
+def find_split(x):
+  return int(ceil(len(x)/2.0))          
+
 def front_back(a, b):
-  # +++your code here+++
-  return
+  a_front = a[:find_split(a)]                   #Partitions first half of a
+  a_back = a[find_split(a):]                    #Partitions second half of a
+  b_front = b[:find_split(b)]                   #Partitions first half of b
+  b_back = b[find_split(b):]                    #Partitions second half of b
+  return a_front + b_front + a_back + b_back
+  
 
 
 # Simple provided test() function used in main() to print
